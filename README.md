@@ -22,18 +22,18 @@ InjectInPayloadEnd will just add the path to the end of the document, good if yo
 <br>
 # Examples
 <br><br>
-Examples: Simply injecting a shell script.
+Injecting a shell script.
 
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh"`
 
-Examples: Simply injecting a shell script and naming payload to "Example".
+Injecting a shell script and naming payload to "Example".
 
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Example"`
 
-Examples: Injecting a shell script, and saving original executable name in /tmp/path.txt, and using a random generated name".
+Injecting a shell script, and saving original executable name in /tmp/path.txt, and using a random generated name".
 
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "" "ToFile_/tmp/path.txt"`
 
-Examples: Injecting a shell script, and saving original executable name in /tmp/path.txt, and using the custom name "Name".
+Injecting a shell script, and saving original executable name in /tmp/path.txt, and using the custom name "Name".
 
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "ToFile_/tmp/path.txt"`
