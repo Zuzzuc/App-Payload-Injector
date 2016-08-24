@@ -14,9 +14,7 @@ InjectInPayloadLine will edit the payload and inject it into the line $LINETOINJ
 
 InjectInPayloadEnd will just add the path to the end of the document, good if you are using a shell script and want to execute the original once your payload has been executed, in this instance set the last line to "exec Apptoinject.app/Contents/MacOS/" and once InjectInPayloadEnd has finished the last line will be "exec Apptoinject.app/Contents/MacOS/$PathToOriginal))"
 
-
-
-
+<br>
 
 Examples: Simply injecting a shell script.
 
