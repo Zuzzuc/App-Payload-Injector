@@ -33,7 +33,7 @@ else
 			let R=R+1
 			if [ "$OES" -gt 0 ];then
 			SR=$R
-			CL=$(awk "FNR == $R { print; exit }" "$TRUESRC/Contents/Info.plist")
+			CL=$(awk "FNR == $R { print; exit }" "$TRUESRC/Contents/Info.plist") && CL=$(echo "$CL" | sed "s%.*<string>%%") && CL=$(echo "$CL" | sed "s%</string>.*%%")
 				if [ "$OES" -eq 1 ];then
 					echo "$CL" > "$OFP"
 				fi
