@@ -25,16 +25,21 @@ InjectInPayloadEndNQ is the same, but will add a single quote '"' as the last li
 # Examples
 <br><br>
 Injecting a shell script.
+
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh"`
-
+<br><br>
 Injecting a shell script and naming payload to "Example".
+
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Example"`
-
+<br><br>
 Injecting a shell script, and saving original executable name in /tmp/path.txt, and using a random generated name".
+
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "" "ToFile_/tmp/path.txt"`
-
+<br><br>
 Injecting a shell script, and saving original executable name in /tmp/path.txt, and using the custom name "Name".
-`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "ToFile_/tmp/path.txt"`
 
+`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "ToFile_/tmp/path.txt"`
+<br><br>
 Injecting a shell script and as well the original executable name in specified payload on line 8, and using the custom name "Name".
+
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "InjectInPayloadLine_8"`
