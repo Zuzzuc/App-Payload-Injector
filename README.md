@@ -4,7 +4,8 @@
 A script that will inject any chosen payload to be executed on app start.
 <br><br>
 
-Note that some applications are write restricted and will therefore require escalated privileges for this script to work.
+Keep in mind that some applications are write restricted and will therefore require escalated privileges for this script to work.
+<br>
 <br>
 
 Usage: AppPayloadInjector.sh "path to app" "path to executable to be injected" "Rename executable to be dropped (optional, but required if $4 will be used. Can however be left blank to generate random name)" "Save original executable path"
