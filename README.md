@@ -13,13 +13,13 @@ Keep in mind that some applications are write restricted and will therefore requ
 
 $4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectInPayloadEnd" or "InjectInPayloadEndNQ".
 
-ToFile is quite simple, it will save the original name of executable to a file, where the path to the file is in $FILEPATH.
+ToFile is quite simple, it will save the original name of executable to $FILEPATH. ToFile will overwrite any pervious data in the path specified, so use with caution.
 
-InjectInPayloadLine will edit the payload and inject it into the line $LINETOINJECT. Note that paths containing space, probably, will fail this unless you modify your payload to handle it.
+InjectInPayloadLine will edit the payload and append it to the line $LINETOINJECT. 
 
 InjectInPayloadEnd will just add the path to the end of the document without creating a newline, this is good if you are injecting a shell script and want to execute the original executable once your payload has been executed. This can be done easily in a shell script by setting the last line of the payload to "exec Apptoinject.app/Contents/MacOS/" and once InjectInPayloadEnd has finished the last line will be "exec Apptoinject.app/Contents/MacOS/$NameOfOriginalExecutable"))
 
-InjectInPayloadEndNQ is the same, but will add a single quote `"` as the last line, useful if path contains space.
+InjectInPayloadEndNQ is the same, but will add a single quote `"` as the last character, useful if the app path contains space.
 
 <br>
 <br>
