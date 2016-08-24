@@ -21,8 +21,11 @@ else
 	elif [ "${4:0:20}" == "InjectInPayloadLine_" ];then
 		OES=3
 		IPL=$(echo "$4" | sed "s%InjectInPayloadLine_%%g")
+	elif [ "$4" == "InjectInPayloadEndNQ" ];then
+		OES=4
 	else
 		echo 'Incorrect usage on $4, read the README.md'
+		exit 3
 	fi
 	AR=$(wc -l < "$TRUESRC/Contents/Info.plist")
 	R=1
@@ -46,9 +49,11 @@ else
 	done
 	cp "$TRUEPATH" "$TRUESRC/Contents/MacOS/$PayloadName"
 	if [ "$OES" -eq 2 ];then
-		echo "$CL" >> "$TRUESRC/Contents/MacOS/$PayloadName"
+		sed -i '' "\$s%\$%$CL%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	elif [ "$OES" -eq 3 ];then
 		sed -i '' -e "$SR s%.*%$CL%" "$TRUESRC/Contents/MacOS/$PayloadName"
+	elif [ "$OES" -eq 4 ];then
+		sed -i '' "\$s%\$%$CL\"%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	fi
 	chmod 755 "$TRUESRC/Contents/MacOS/$PayloadName"
 fi
