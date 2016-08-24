@@ -10,7 +10,7 @@ Keep in mind that some applications are write restricted and will therefore requ
 
 Usage: AppPayloadInjector.sh "path to app" "path to executable to be injected" "Rename executable to be dropped (optional, but required if $4 will be used. Can however be left blank to generate random name)" "Save original executable path"
 
-$4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectInPayloadEnd".
+$4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectInPayloadEnd" and "InjectInPayloadEndNQ".
 
 ToFile is quite simple, will save the original name of executable to a file, where the path to the file is in $FILEPATH.
 
