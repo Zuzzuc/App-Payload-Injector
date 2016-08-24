@@ -1,7 +1,7 @@
 # App-Payload-Injector
 
 
-A script that will inject any chosen payload to be executed on app start.
+A script used to inject executables into OSX .app files. It's also possible to extract original executable path and by configuring the chosen payload It's possible to make the payload launch the app, allowing for undetected code execution.
 <br><br>
 
 Keep in mind that some applications are write restricted and will therefore require escalated privileges for this script to work.
