@@ -17,7 +17,7 @@ ToFile is quite simple, it will save the original name of executable to a file, 
 
 InjectInPayloadLine will edit the payload and inject it into the line $LINETOINJECT. Note that paths containing space, probably, will fail this unless you modify your payload to handle it.
 
-InjectInPayloadEnd will just add the path to the end of the document without creating a newline, this is good if you are injecting a shell script and want to execute the original executable once your payload has been executed, in this instance set the last line to "exec Apptoinject.app/Contents/MacOS/" and once InjectInPayloadEnd has finished the last line will be "exec Apptoinject.app/Contents/MacOS/$NameOfOriginalExecutable"))
+InjectInPayloadEnd will just add the path to the end of the document without creating a newline, this is good if you are injecting a shell script and want to execute the original executable once your payload has been executed. This can be done easily in a shell script by setting the last line of the payload to "exec Apptoinject.app/Contents/MacOS/" and once InjectInPayloadEnd has finished the last line will be "exec Apptoinject.app/Contents/MacOS/$NameOfOriginalExecutable"))
 
 InjectInPayloadEndNQ is the same, but will add a single quote `"` as the last line, useful if path contains space.
 
