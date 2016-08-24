@@ -16,6 +16,8 @@ InjectInPayloadEnd will just add the path to the end of the document, good if yo
 
 
 
+
+
 Examples: Simply injecting a shell script.
 
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh"`
