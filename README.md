@@ -13,7 +13,7 @@ Keep in mind that some applications are write restricted and will therefore requ
 
 $4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectInPayloadEnd" or "InjectInPayloadEndNQ".
 
-ToFile is quite simple, will save the original name of executable to a file, where the path to the file is in $FILEPATH.
+ToFile is quite simple, it will save the original name of executable to a file, where the path to the file is in $FILEPATH.
 
 InjectInPayloadLine will edit the payload and inject it into the line $LINETOINJECT. Note that paths containing space, probably, will fail this unless you modify your payload to handle it.
 
