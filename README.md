@@ -39,3 +39,7 @@ Injecting a shell script, and saving original executable name in /tmp/path.txt, 
 Injecting a shell script, and saving original executable name in /tmp/path.txt, and using the custom name "Name".
 
 `AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "ToFile_/tmp/path.txt"`
+
+Injecting a shell script and as well the original executable name in specified payload on line 8, and using the custom name "Name".
+
+`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "InjectInPayloadLine_8"`
