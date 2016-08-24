@@ -45,7 +45,7 @@ else
 		fi
 	done
 	cp "$TRUEPATH" "$TRUESRC/Contents/MacOS/$PayloadName"
-	if[ "$OES" -eq 2 ];then
+	if [ "$OES" -eq 2 ];then
 		echo "$CL" >> "$TRUESRC/Contents/MacOS/$PayloadName"
 	elif [ "$OES" -eq 3 ];then
 		sed -i '' -e "$SR s%.*%$CL%" "$TRUESRC/Contents/MacOS/$PayloadName"
