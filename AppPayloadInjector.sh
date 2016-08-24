@@ -51,7 +51,7 @@ else
 	if [ "$OES" -eq 2 ];then
 		sed -i '' "\$s%\$%$CL%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	elif [ "$OES" -eq 3 ];then
-		sed -i '' -e "$SR s%.*%$CL%" "$TRUESRC/Contents/MacOS/$PayloadName"
+		sed -i '' -e "$OES s%\$%$CL%"
 	elif [ "$OES" -eq 4 ];then
 		sed -i '' "\$s%\$%$CL\"%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	fi
