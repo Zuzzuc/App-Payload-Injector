@@ -7,6 +7,10 @@ if [ "$1" == "" ] || [ "$2" == "" ];then
 	exit 1
 else
 	LMTA=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC") && LMTC=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents") && LMTIP=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/Info.plist") && LMTEF=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/MacOS")
+	if [ "$(echo ${TRUESRC: -4})" != ".app" ] || [ ! -d "$TRUESRC" ] ;then
+		echo "\$1 is not an application. Aborting"
+		exit 1
+	fi
 	if [ "$3" == "" ];then
 		PayloadName=$RANDOM
 	else
