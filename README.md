@@ -9,7 +9,7 @@ Keep in mind that some applications are write restricted and will therefore requ
 <br>
 
 #Usage
-`AppPayloadInjector.sh "path to app" "path to executable to be injected" "Custom name for executable to be dropped (optional, but required if $4 will be used. Can however be left blank to generate random name)" "Save original executable name"`
+`AppPayloadInjector.sh "path to app" "path to executable to be injected" "Custom name for executable to be dropped (optional, but required if $4 will be used. Can however be left blank to generate random name)" "Save original executable name" "Misc options. Currently only 'AppendToEnd_$TextToAppendToEnd' is supported"`
 
 $4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectInPayloadEnd" or "InjectInPayloadEndNQ".
 
@@ -20,6 +20,8 @@ InjectInPayloadLine will edit the payload and append it to the line $LINETOINJEC
 InjectInPayloadEnd will just add the path to the end of the document without creating a newline, this is good if you are injecting a shell script and want to execute the original executable once your payload has been executed. This can be done easily in a shell script by setting the last line of the payload to "exec Apptoinject.app/Contents/MacOS/" and once InjectInPayloadEnd has finished the last line will be "exec Apptoinject.app/Contents/MacOS/$NameOfOriginalExecutable"))
 
 InjectInPayloadEndNQ is the same, but will add a single quote `"` as the last character, useful if the app path contains space.
+
+$5 currently only supports 'AppendToEnd'. Everything that is after '_' the will get added to the file.
 
 <br>
 <br>
