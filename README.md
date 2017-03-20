@@ -8,7 +8,7 @@ Keep in mind that some applications are write restricted and will therefore requ
 <br>
 <br>
 
-#Usage
+# Usage
 `AppPayloadInjector.sh "path to app" "path to executable to be injected" "Custom name for executable to be dropped (optional, but required if $4 will be used. Can however be left blank to generate random name)" "Save original executable name" "Misc options. Currently only 'AppendToEnd_$TextToAppendToEnd' is supported"`
 
 $4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectInPayloadEnd" or "InjectInPayloadEndNQ".
