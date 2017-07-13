@@ -17,7 +17,7 @@ $4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectIn
 
 ToFile is quite simple, it will save the original name of executable to $FILEPATH. ToFile will overwrite any pervious data in the path specified, so use with caution.
 
-InjectInPayloadLine will edit the payload and append it to the line $LINETOINJECT. 
+InjectInPayloadLine will edit the payload and append it to the line $LINETOINJECT.
 
 InjectInPayloadEnd will just add the path to the end of the document without creating a newline, this is good if you are injecting a shell script and want to execute the original executable once your payload has been executed. This can be done easily in a shell script by setting the last line of the payload to "exec Apptoinject.app/Contents/MacOS/" and once InjectInPayloadEnd has finished the last line will be "exec Apptoinject.app/Contents/MacOS/$NameOfOriginalExecutable"))
 
