@@ -8,7 +8,7 @@ Keep in mind that some applications are write restricted and will therefore requ
 <br>
 <br>
 # NOTE
-<b>Expect a update during the coming weeks improving execution time tenfolds as well as adding a real input handler. This update will also include new options. (Oops, been busy at work. Will update in December)</b>
+<b>Expect a update during the coming weeks improving execution time tenfolds as well as adding a real input handler. This update will also include new options. (Oops, saw this now. 6 months since I put it here. Been busy at work. Will update in December)</b>
 
 # Usage
 `AppPayloadInjector.sh "path to app" "path to executable to be injected" "Custom name for executable to be dropped (optional, but required if $4 will be used. Can however be left blank to generate random name)" "Save original executable name" "Misc options. Currently only 'AppendToEnd_$TextToAppendToEnd' is supported"`
