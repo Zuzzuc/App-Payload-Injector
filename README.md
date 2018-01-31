@@ -1,52 +1,84 @@
 # App-Payload-Injector
 
-
-A script used to inject executables into OSX .app files. It's also possible to extract original executable path and by configuring the chosen payload It's possible to make the payload launch the app, allowing for undetected code execution.
-<br><br>
+A script used to inject executables into OSX .app files.
 
 Keep in mind that some applications are write restricted and will therefore require escalated privileges for this script to work.
 <br>
 <br>
-# NOTE
-<b>Expect a update during the coming weeks improving execution time tenfolds as well as adding a real input handler. This update will also include new options. (Oops, saw this now. 6 months since I put it here. Been busy at work. Will update in ~~December~~ January?)</b>
-
-# Usage
-`AppPayloadInjector.sh "path to app" "path to executable to be injected" "Custom name for executable to be dropped (optional, but required if $4 will be used. Can however be left blank to generate random name)" "Save original executable name" "Misc options. Currently only 'AppendToEnd_$TextToAppendToEnd' is supported"`
-
-$4 usage is : "ToFile_$FILEPATH", "InjectInPayloadLine_$LINETOINJECT", "InjectInPayloadEnd" or "InjectInPayloadEndNQ".
-
-ToFile is quite simple, it will save the original name of executable to $FILEPATH. ToFile will overwrite any pervious data in the path specified, so use with caution.
-
-InjectInPayloadLine will edit the payload and append it to the line $LINETOINJECT.
-
-InjectInPayloadEnd will just add the path to the end of the document without creating a newline, this is good if you are injecting a shell script and want to execute the original executable once your payload has been executed. This can be done easily in a shell script by setting the last line of the payload to "exec Apptoinject.app/Contents/MacOS/" and once InjectInPayloadEnd has finished the last line will be "exec Apptoinject.app/Contents/MacOS/$NameOfOriginalExecutable"))
-
-InjectInPayloadEndNQ is the same, but will add a single quote `"` as the last character, useful if the app path contains space.
-
-$5 currently only supports 'AppendToEnd'. Everything that is after '_' the will get added to the file.
-
+## Usage
+For this script to work it needs a minimum of two arguments. One specifying what app to target and one specifying what payload to use.
 <br>
-<br>
+An exeample of this minimum viable call would be the following:`./AppPayloadInjector.sh -t=/tmp/Someapp.app -p="/path with/space/payload.sh"`
+
+## Arguments
+### Target
+#### -t or --target
+#### Requires a parameter
+#### This argument is required.
+<br>This option chooses what app to target.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app"`
+<br><br><br>
+
+### Payload
+#### -p or --payload
+#### Requires a parameter
+#### This argument is required.
+<br>This option chooses what payload to use.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh"`
+<br><br><br>
+
+### Nohide
+#### -nohide
+<br>Disables trace hiding. This script attempts to remove any trace that some file(s) has been modified before finishing.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -nohide`
+<br><br><br>
+
+### Force
+#### -f|--force
+<br>Attempts to bypass any obstacles if found.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -f`
+<br><br><br>
+
+### Payloadname
+#### -pn|--payloadname
+#### Requires a parameter
+<br>Sets the name of the dropped payload. If not set, generates a random name.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -pn="Payload"`
+<br><br><br>
+
+### Payloadpermission
+#### -pp|--payloadpermission
+#### Requires a parameter
+<br>Sets the permission of the payload once dropped. If not set, uses same permission as original executable.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -pp="u-r"`
+<br><br><br>
+
+### Dualexecute
+#### -de|--dualexecute
+<br>Enables dual execution causing both the specified payload and the app to launch on application init, allowing for undetected code execution.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -de`
+<br><br><br>
+
+### Dualexecutename
+#### -den|--dualexecutename
+#### Requires a parameter
+<br>Sets the name of the dropped launcher allowing for dual execution.<br><br>
+Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -den="launcher"`
+<br><br><br>
+
 
 # Examples 
 
-<br><br>
+br><br>
 Injecting a shell script.
 
-`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh"`
+`./AppPayloadInjector.sh -t="/Applications/App.app" -p="~/Desktop/Shell.sh"`
 <br><br>
 Injecting a shell script and naming payload to "Example".
 
-`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Example"`
+`./AppPayloadInjector.sh -t="/Applications/App.app" -p"~/Desktop/Shell.sh" -pn="Example"`
 <br><br>
-Injecting a shell script, and saving original executable name in /tmp/path.txt, and using a random generated name".
+Force injecting a shell script, enabeling dual execution and naming dual execution stub to "launcher".
 
-`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "" "ToFile_/tmp/path.txt"`
+`./AppPayloadInjector.sh -t="/Applications/App.app" -p"~/Desktop/Shell.sh" -f -de -den="laucnher"`
 <br><br>
-Injecting a shell script, and saving original executable name in /tmp/path.txt, and using the custom name "Name".
-
-`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "ToFile_/tmp/path.txt"`
-<br><br>
-Injecting a shell script and as well the original executable name in specified payload on line 8, and using the custom name "Name".
- 
-`AppPayloadInjector.sh "/Applications/App.app" "~/Desktop/Shell.sh" "Name" "InjectInPayloadLine_8"`
