@@ -78,7 +78,7 @@ Injecting a shell script and naming payload to "Example".
 
 `./AppPayloadInjector.sh -t="/Applications/App.app" -p"~/Desktop/Shell.sh" -pn="Example"`
 <br><br>
-Force injecting a shell script, enabeling dual execution and naming dual execution stub to "launcher".
+Force injecting a shell script, enabling dual execution and naming dual execution stub to "launcher".
 
 `./AppPayloadInjector.sh -t="/Applications/App.app" -p"~/Desktop/Shell.sh" -f -de -den="laucnher"`
 <br><br>
