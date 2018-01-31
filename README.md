@@ -69,7 +69,7 @@ Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.
 
 # Examples 
 
-br><br>
+
 Injecting a shell script.
 
 `./AppPayloadInjector.sh -t="/Applications/App.app" -p="~/Desktop/Shell.sh"`
