@@ -3,8 +3,6 @@
 A script used to inject executables into OSX .app files.
 
 Keep in mind that some applications are write restricted and will therefore require escalated privileges for this script to work.
-<br>
-<br>
 ## Usage
 For this script to work it needs a minimum of two arguments. One specifying what app to target and one specifying what payload to use.
 <br><br>
