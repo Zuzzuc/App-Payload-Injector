@@ -7,7 +7,7 @@ Keep in mind that some applications are write restricted and will therefore requ
 <br>
 ## Usage
 For this script to work it needs a minimum of two arguments. One specifying what app to target and one specifying what payload to use.
-<br>
+<br><br>
 An exeample of this minimum viable call would be the following:`./AppPayloadInjector.sh -t=/tmp/Someapp.app -p="/path with/space/payload.sh"`
 
 ## Arguments
