@@ -34,33 +34,33 @@ Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.
 <br><br><br>
 
 ### Force
-#### -f|--force
+#### -f or --force
 <br>Attempts to bypass any obstacles if found.<br><br>
 Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -f`
 <br><br><br>
 
 ### Payloadname
-#### -pn|--payloadname
+#### -pn or --payloadname
 #### Requires a parameter
 <br>Sets the name of the dropped payload. If not set, generates a random name.<br><br>
 Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -pn="Payload"`
 <br><br><br>
 
 ### Payloadpermission
-#### -pp|--payloadpermission
+#### -pp or --payloadpermission
 #### Requires a parameter
 <br>Sets the permission of the payload once dropped. If not set, uses same permission as original executable.<br><br>
 Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -pp="u-r"`
 <br><br><br>
 
 ### Dualexecute
-#### -de|--dualexecute
-<br>Enables dual execution causing both the specified payload and the app to launch on application init, allowing for undetected code execution.<br><br>
+#### -de or --dualexecute
+<br>Enables dual execution causing both the specified payload and the app to launch on application init.<br><br>
 Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -de`
 <br><br><br>
 
 ### Dualexecutename
-#### -den|--dualexecutename
+#### -den or --dualexecutename
 #### Requires a parameter
 <br>Sets the name of the dropped launcher allowing for dual execution.<br><br>
 Example: `./AppPayloadInjector.sh -t="$HOME/Desktop/myapp.app" -p="/tmp/payload.sh" -den="launcher"`
